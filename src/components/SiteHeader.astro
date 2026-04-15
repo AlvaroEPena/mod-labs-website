@@ -1,0 +1,56 @@
+---
+const pathname = Astro.url.pathname;
+const nav = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Quote" },
+  { href: "/book", label: "Book" },
+];
+
+function isActive(href: string): boolean {
+  if (href === "/") return pathname === "/";
+  return pathname.startsWith(href);
+}
+---
+
+<header class="sticky-top border-bottom border-brand bg-brand-surface" style="backdrop-filter: blur(14px); background: rgba(15, 18, 48, 0.82) !important;">
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand" href="/" aria-label="Mod Labs home">
+        <span class="text-accent-gradient">Mod Labs</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+          {nav.map((item) => (
+            <li class="nav-item">
+              <a
+                class:list={["nav-link px-lg-3", { active: isActive(item.href) }]}
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="ms-lg-3 d-flex gap-2 mt-3 mt-lg-0">
+          <a class="btn btn-outline-accent btn-sm" href="/contact">Request quote</a>
+          <a class="btn btn-accent btn-sm" href="/book">Book</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

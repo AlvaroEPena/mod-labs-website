@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#070815"/>
+      <stop offset="55%" style="stop-color:#0f1230"/>
+      <stop offset="100%" style="stop-color:#141a44"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="80%" cy="10%" r="70%">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.35"/>
+      <stop offset="55%" stop-color="#00e5ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="20%" cy="0%" r="70%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.35"/>
+      <stop offset="55%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <text x="600" y="300" fill="#00e5ff" font-family="Segoe UI, system-ui, sans-serif" font-size="56" font-weight="800" text-anchor="middle">Mod Labs</text>
+  <text x="600" y="380" fill="#b2b8df" font-family="Segoe UI, system-ui, sans-serif" font-size="28" text-anchor="middle">Console modding &amp; repair</text>
+</svg>

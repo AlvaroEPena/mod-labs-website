@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Services & pricing | Mod Labs"
+  description="Xbox 360 RGH for $100. Nintendo Switch modchips: OLED Kamikaze $160, v1/v2 $120, Lite $140. Book or request a quote."
+>
+  <section class="hero-gradient border-bottom border-brand py-5">
+    <div class="container" data-aos="fade-up">
+      <h1 class="display-5 fw-bold section-title mb-2">Services &amp; pricing</h1>
+      <p class="text-muted-brand lead mb-0">
+        Core mod work is priced below. Repair, diagnostics, or custom requests use the quote form.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <div class="col-12" data-aos="fade-up">
+          <h2 class="h4 fw-bold mb-3">Xbox 360 — RGH</h2>
+          <p class="text-muted-brand">
+            Full RGH coverage across console types: <strong class="text-light">phat</strong> consoles using a <strong class="text-light">modchip-based</strong> approach where applicable, and <strong class="text-light">slim</strong> consoles with <strong class="text-light">RGH3</strong>
+          </p>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="60">
+          <div class="card service-card h-100 p-4">
+            <h3 class="h5 fw-bold">Xbox 360 RGH</h3>
+            <p class="text-muted-brand small">
+              Phat RGH 1.2 (modchip) &amp; slim (RGH3) and other RGH at custom request, all under one easy price.
+            </p>
+            <ul class="text-muted-brand small ps-3 mb-3">
+              <li>Modchip (if applicable)</li>
+              <li>Console deep clean and new thermal paste</li>
+              <li>Software setup (Aurora + Everything else)</li>
+              <li>Selection of games. <strong>Ask for list.</strong></li>
+            </ul>
+            <p class="price-pill mb-0">$100</p>
+            <a class="btn btn-accent btn-sm mt-3 align-self-start" href="/book">Request this service</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12" data-aos="fade-up">
+          <h2 class="h4 fw-bold mb-3">Nintendo Switch — modchips</h2>
+          <p class="text-muted-brand mb-0">
+            Modchip installs for <strong class="text-light">OLED</strong>, <strong class="text-light">V1/V2</strong>, and <strong class="text-light">Switch Lite</strong>. OLED installs use the <strong class="text-light">Kamikaze</strong>
+          </p>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up">
+          <div class="card service-card h-100 p-4">
+            <h3 class="h5 fw-bold">Switch OLED</h3>
+            <p class="text-muted-brand small">Modchip install via Kamikaze method</p>
+            <ul class="text-muted-brand small ps-3 mb-3">
+              <li>Modchip</li>
+              <li>Kamikaze method (Direct DAT0 point to never come undone)</li>
+              <li>New thermal paste and deep clean</li>
+              <li>Software setup (Emunand partition, homebrew) and selection of games. <strong>Ask for list.</strong></li>
+            </ul>
+            <p class="price-pill mb-0">$160</p>
+            <a class="btn btn-accent btn-sm mt-3 align-self-start" href="/book">Request this service</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="card service-card h-100 p-4">
+            <h3 class="h5 fw-bold">Switch v1 / v2</h3>
+            <p class="text-muted-brand small">Standard modchip path for classic Switch models.</p>
+            <ul class="text-muted-brand small ps-3 mb-3">
+              <li>Modchip</li>
+              <li>New thermal paste and deep clean</li>
+              <li>Software setup (Emunand partition, homebrew, etc) and selection of games. <strong>Ask for list.</strong></li>
+            </ul>
+            <p class="price-pill mb-0">$120</p>
+            <a class="btn btn-accent btn-sm mt-3 align-self-start" href="/book">Request this service</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="card service-card h-100 p-4">
+            <h3 class="h5 fw-bold">Switch Lite</h3>
+            <p class="text-muted-brand small">Modchip install for the portable form factor.</p>
+            <ul class="text-muted-brand small ps-3 mb-3">
+              <li>Modchip</li>
+              <li>New thermal paste and deep clean</li>
+              <li>Software setup (Emunand partition, homebrew, etc) and selection of games. <strong>Ask for list.</strong></li>
+            </ul>
+            <p class="price-pill mb-0">$140</p>
+            <a class="btn btn-accent btn-sm mt-3 align-self-start" href="/book">Request this service</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-lg-8" data-aos="fade-up">
+          <div class="p-4 rounded-4 bg-brand-surface-2 border border-brand">
+            <h2 class="h5 fw-bold mb-2">Not sure what you want?</h2>
+            <p class="text-muted-brand small mb-3">
+              Send a message by starting a quote and ask any questions! I try to make this experience as personal as possible and noob friendly.
+              Any general electronic repairs (i.e. port replacements, joystick replacements, etc) as well as custom shell replacements can be asked about.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-accent" href="/contact">Start a quote</a>
+              <!--- <a class="btn btn-outline-accent" href="/book">Book a consultation</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

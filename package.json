@@ -1,0 +1,21 @@
+{
+  "name": "modding-business-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "astro": "^6.1.6",
+    "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "typescript": "^6.0.2"
+  }
+}

@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+/** Placeholder gallery — replace URLs and captions with your project photos. */
+const items = [
+  { src: "https://picsum.photos/seed/modlab1/1200/800", alt: "Xbox 360 RGH build — placeholder photo", caption: "Xbox 360 RGH — clean wire routing (placeholder)" },
+  { src: "https://picsum.photos/seed/modlab2/1200/800", alt: "Switch modchip install — placeholder photo", caption: "Switch modchip install close-up (placeholder)" },
+  { src: "https://picsum.photos/seed/modlab3/1200/800", alt: "Workbench overview — placeholder photo", caption: "Bench snapshot — flux, microscope, fixtures (placeholder)" },
+  { src: "https://picsum.photos/seed/modlab4/1200/800", alt: "Slim console RGH3 — placeholder photo", caption: "Slim RGH3 result (placeholder)" },
+  { src: "https://picsum.photos/seed/modlab5/1200/800", alt: "OLED Switch — placeholder photo", caption: "OLED post-mod verification (placeholder)" },
+  { src: "https://picsum.photos/seed/modlab6/1200/800", alt: "Switch Lite — placeholder photo", caption: "Lite modchip path (placeholder)" },
+];
+---
+
+<BaseLayout
+  title="Gallery | Mod Labs"
+  description="Photos of completed Xbox 360 RGH, Nintendo Switch modchip work, and bench shots from Mod Labs."
+>
+  <section class="hero-gradient border-bottom border-brand py-5">
+    <div class="container" data-aos="fade-up">
+      <h1 class="display-5 fw-bold section-title mb-2">Gallery</h1>
+      <p class="text-muted-brand lead mb-0">
+        A few bench shots and finished builds. Swap these placeholders for your own images anytime.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        {items.map((item, i) => (
+          <div class="col-6 col-lg-4" data-aos="fade-up" data-aos-delay={Math.min(i * 60, 240)}>
+            <button
+              type="button"
+              class="gallery-thumb w-100 p-0 border-0 bg-transparent"
+              data-bs-toggle="modal"
+              data-bs-target="#galleryModal"
+              data-gallery-src={item.src}
+              data-gallery-caption={item.caption}
+              data-gallery-alt={item.alt}
+            >
+              <img src={item.src} alt={item.alt} loading="lazy" decoding="async" width="600" height="400" />
+            </button>
+            <p class="small text-muted-brand mt-2 mb-0">{item.caption}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <div
+    class="modal fade"
+    id="galleryModal"
+    tabindex="-1"
+    aria-labelledby="galleryModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+      <div class="modal-content bg-brand-surface border border-brand">
+        <div class="modal-header border-brand">
+          <h2 class="modal-title h5 mb-0" id="galleryModalLabel">Photo</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+               <div class="modal-body p-0">
+          <img id="galleryModalImage" class="w-100" alt="" />
+          <p class="small text-muted-brand px-3 py-3 mb-0" id="galleryModalCaption"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <script>
+    import { Modal } from "bootstrap";
+
+    const modalEl = document.getElementById("galleryModal");
+    const imgEl = document.getElementById("galleryModalImage");
+    const capEl = document.getElementById("galleryModalCaption");
+    const titleEl = document.getElementById("galleryModalLabel");
+
+    modalEl?.addEventListener("show.bs.modal", (event: Event) => {
+      const trigger = (event as Event & { relatedTarget: HTMLElement | null }).relatedTarget;
+      if (!trigger || !imgEl || !capEl || !titleEl) return;
+      const src = trigger.getAttribute("data-gallery-src");
+      const caption = trigger.getAttribute("data-gallery-caption") ?? "";
+      const alt = trigger.getAttribute("data-gallery-alt") ?? "";
+      if (src) imgEl.src = src;
+      imgEl.alt = alt;
+      capEl.textContent = caption;
+      titleEl.textContent = caption || "Photo";
+    });
+
+    modalEl?.addEventListener("hidden.bs.modal", () => {
+      if (imgEl) imgEl.src = "";
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modalEl?.classList.contains("show")) {
+        const instance = Modal.getInstance(modalEl);
+        instance?.hide();
+      }
+    });
+  </script>
+</BaseLayout>

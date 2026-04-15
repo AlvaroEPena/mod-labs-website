@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const formspreeId = import.meta.env.PUBLIC_FORMSPREE_ID;
+const formAction = formspreeId ? `https://formspree.io/f/${formspreeId}` : null;
+const thanksUrl = new URL("/book?sent=1", Astro.url).href;
+const sent = Astro.url.searchParams.get("sent") === "1";
+---
+
+<BaseLayout
+  title="Book a service request | Mod Labs"
+  description="Request a service by selecting exactly what you want done and adding notes for your Xbox or Switch job."
+>
+  <section class="hero-gradient border-bottom border-brand py-5">
+    <div class="container" data-aos="fade-up">
+      <h1 class="display-5 fw-bold section-title mb-2">Book a service request</h1>
+      <p class="text-muted-brand lead mb-0">
+        Pick the service options you want, add a message, and submit. I will confirm availability and next steps and answer any questions. Ask about the game archives if you're interested ;)
+      </p>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-7">
+          {sent && (
+            <div class="alert alert-success mb-4" role="status" data-aos="fade-up">
+              Request received. We will review your selected service options and reply with confirmation.
+            </div>
+          )}
+
+          {!formAction && (
+            <div class="alert alert-warning mb-4" role="status" data-aos="fade-up">
+              <strong>Form not wired yet.</strong> Add <code>PUBLIC_FORMSPREE_ID</code> to your <code>.env</code> (see <code>.env.example</code>) and restart the dev server.
+            </div>
+          )}
+
+          {formAction && (
+            <form action={formAction} method="POST" class="needs-validation" novalidate data-aos="fade-up">
+              <input type="hidden" name="_subject" value="Mod Labs — new booking request" />
+              <input type="hidden" name="_next" value={thanksUrl} />
+
+              <div class="mb-3" aria-hidden="true" style="position: absolute; left: -9999px; height: 0; overflow: hidden;">
+                <label for="website">Leave this field empty</label>
+                <input id="website" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="name">Name</label>
+                  <input class="form-control" id="name" name="name" type="text" autocomplete="name" required minlength="2" />
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-control" id="email" name="email" type="email" autocomplete="email" required />
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="phone">Phone <span class="text-muted-brand">(optional)</span></label>
+                  <input class="form-control" id="phone" name="phone" type="tel" autocomplete="tel" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="delivery">Local (Mail-in soon)</label>
+                  <select class="form-select" id="delivery" name="delivery" required>
+                    <option value="" disabled>Choose one</option>
+                    <option selected>Local drop-off</option>
+                    <option disabled>Mail-in (I will ship)</option>
+                    <option disabled>Not sure yet</option>
+                  </select>
+                  <div class="invalid-feedback">Please choose how you plan to send your console.</div>
+                </div>
+
+                <div class="col-12">
+                  <p class="form-label mb-2">Select service options</p>
+                  <div class="rounded-4 border border-brand p-3 bg-brand-surface-2">
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" type="checkbox" id="svc-xbox" name="service_options" value="Xbox 360 RGH ($100)" required />
+                      <label class="form-check-label" for="svc-xbox">Xbox 360 RGH ($100)</label>
+                    </div>
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" type="checkbox" id="svc-oled" name="service_options" value="Switch OLED modchip - Kamikaze ($160)" />
+                      <label class="form-check-label" for="svc-oled">Switch OLED modchip - Kamikaze ($160)</label>
+                    </div>
+                    <div class="form-check mb-2">
+                      <input class="form-check-input" type="checkbox" id="svc-v1v2" name="service_options" value="Switch v1/v2 modchip ($120)" />
+                      <label class="form-check-label" for="svc-v1v2">Switch v1/v2 modchip ($120)</label>
+                    </div>
+                    <div class="form-check mb-0">
+                      <input class="form-check-input" type="checkbox" id="svc-lite" name="service_options" value="Switch Lite modchip ($140)" />
+                      <label class="form-check-label" for="svc-lite">Switch Lite modchip ($140)</label>
+                    </div>
+                  </div>
+                  <div class="invalid-feedback d-block" id="service-options-feedback" style="display: none !important;">Please select at least one service option.</div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="details">Message</label>
+                  <textarea
+                    class="form-control"
+                    id="details"
+                    name="message"
+                    rows="6"
+                    required
+                    minlength="20"
+                    placeholder="Tell us your console model/revision and any details we should know."
+                  ></textarea>
+                  <div class="invalid-feedback">Please add a message (at least 20 characters).</div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="consent" name="consent" value="yes" required />
+                    <label class="form-check-label text-muted-brand" for="consent">
+                      I agree you may contact me about this request. See the <a href="/privacy" class="link-light">privacy</a> page for details.
+                    </label>
+                    <div class="invalid-feedback">Please confirm before sending.</div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-accent btn-lg mt-4">Send booking request</button>
+            </form>
+          )}
+        </div>
+
+        <div class="col-lg-5" data-aos="fade-up" data-aos-delay="80">
+          <div class="p-4 rounded-4 bg-brand-surface border border-brand h-100">
+            <h2 class="h5 fw-bold mb-3">How booking requests work</h2>
+            <ol class="text-muted-brand small ps-3 mb-4">
+              <li class="mb-2">Choose one or more service options from the list.</li>
+              <li class="mb-2">Add your message with model details and goals.</li>
+              <li>We confirm the booking details and queue timing by email.</li>
+            </ol>
+            <a class="btn btn-outline-accent w-100" href="/contact">Need repair instead? Request a quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {formAction && (
+    <script>
+      const forms = document.querySelectorAll(".needs-validation");
+      Array.from(forms).forEach((form) => {
+        form.addEventListener("submit", (event) => {
+          const el = form as HTMLFormElement;
+          const options = el.querySelectorAll("input[name='service_options']") as NodeListOf<HTMLInputElement>;
+          const feedback = document.getElementById("service-options-feedback");
+          const oneSelected = Array.from(options).some((opt) => opt.checked);
+
+          if (!el.checkValidity() || !oneSelected) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          if (feedback) {
+            feedback.style.display = oneSelected ? "none" : "block";
+          }
+
+          options.forEach((opt) => {
+            opt.required = !oneSelected;
+          });
+
+          el.classList.add("was-validated");
+        }, false);
+      });
+    </script>
+  )}
+</BaseLayout>

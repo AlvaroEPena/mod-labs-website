@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Mod Labs | Console modding & electronic repair"
+  description="Xbox 360 RGH, Nintendo Switch modchips (OLED Kamikaze, v1/v2, Lite), and professional electronic repair. Request a quote or book a slot."
+>
+  <section class="hero-gradient border-bottom border-brand py-5 py-lg-6">
+    <div class="container py-lg-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7" data-aos="fade-up">
+          <p class="text-uppercase small fw-semibold text-muted-brand mb-2">Modding &amp; repair</p>
+          <h1 class="display-4 fw-bold section-title mb-3">
+            Clean installs. Clear pricing. Endless play activated.
+          </h1>
+          <p class="lead text-muted-brand mb-4">
+            Xbox 360 RGH (phat modchip &amp; slim RGH3) and Switch modchip that works across OLED, V1/V2, and Lite — plus general electronic repair when you need it.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a class="btn btn-accent btn-lg" href="/contact">Request a quote or have questions</a>
+            <a class="btn btn-outline-accent btn-lg" href="/services">View pricing</a>
+            <a class="btn btn-accent-alt btn-lg" href="/book">Book a service</a>
+          </div>
+        </div>
+        <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-4 rounded-4 bg-brand-surface border border-brand shadow-lg">
+            <h2 class="h5 fw-bold mb-3">Featured pricing</h2>
+            <ul class="list-unstyled mb-0 small">
+              <li class="d-flex justify-content-between py-2 border-bottom border-brand">
+                <span class="text-muted-brand">Xbox 360 RGH</span>
+                <span class="fw-bold" style="color: var(--brand-accent);">$100</span>
+              </li>
+              <li class="d-flex justify-content-between py-2 border-bottom border-brand">
+                <span class="text-muted-brand">Switch OLED (Kamikaze)</span>
+                <span class="fw-bold" style="color: var(--brand-accent);">$160</span>
+              </li>
+              <li class="d-flex justify-content-between py-2 border-bottom border-brand">
+                <span class="text-muted-brand">Switch v1 / v2</span>
+                <span class="fw-bold" style="color: var(--brand-accent);">$120</span>
+              </li>
+              <li class="d-flex justify-content-between py-2">
+                <span class="text-muted-brand">Switch Lite</span>
+                <span class="fw-bold" style="color: var(--brand-accent);">$140</span>
+              </li>
+            </ul>
+            <a class="btn btn-outline-accent w-100 mt-3" href="/services">Full service list and more information</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-4 py-lg-5">
+    <div class="container" data-aos="fade-up">
+      <div class="gallery-spotlight p-4 p-lg-5">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <span class="gallery-spotlight-badge">Featured Work Gallery</span>
+            <h2 class="display-6 fw-bold section-title mt-3 mb-2">See real mods before you book</h2>
+            <p class="text-muted-brand mb-4">
+              Check completed installs, board-level quality, and final results in one place. If visuals matter to you, start in the gallery.
+            </p>
+            <div class="d-flex flex-wrap gap-2">
+              <a class="btn btn-accent btn-lg" href="/gallery">View full gallery</a>
+              <a class="btn btn-outline-accent btn-lg" href="/book">Book after viewing</a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="gallery-mini-grid">
+              <img src="https://picsum.photos/seed/modlabs-home-1/600/400" alt="Gallery preview one" loading="lazy" />
+              <img src="https://picsum.photos/seed/modlabs-home-2/600/400" alt="Gallery preview two" loading="lazy" />
+              <img src="https://picsum.photos/seed/modlabs-home-3/600/400" alt="Gallery preview three" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up">
+          <div class="p-4 h-100 rounded-4 bg-brand-surface border border-brand">
+            <h2 class="h5 fw-bold mb-2">Precision work</h2>
+            <p class="text-muted-brand small mb-0">
+              Every install is done with clean soldering, careful board handling, and final verification so your console leaves stable, clean, and ready to play.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="p-4 h-100 rounded-4 bg-brand-surface border border-brand">
+            <h2 class="h5 fw-bold mb-2">Clear pricing, no guesswork</h2>
+            <p class="text-muted-brand small mb-0">
+              Core service pricing is listed up front, and anything custom or repair-adjacent starts with a straightforward quote so you know exactly what to expect.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="p-4 h-100 rounded-4 bg-brand-surface border border-brand">
+            <h2 class="h5 fw-bold mb-2">Personalized service experience</h2>
+            <p class="text-muted-brand small mb-0">
+              You get consistent updates, quick turnaround where possible, and flexible custom-request support so your setup is built around what you actually want.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
