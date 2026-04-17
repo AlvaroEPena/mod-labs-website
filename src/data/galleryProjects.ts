@@ -8,11 +8,11 @@ export type GalleryProjectCopy = {
 export const galleryProjectCopy: Record<number, GalleryProjectCopy> = {
   1: {
     title: "Portable Handheld Wii (G-boy)",
-    caption: "Project 1 — edit title and caption in src/data/galleryProjects.ts",
+    caption: "Transformed a Wii console into a portable, handheld device by reducing the board size by 70%, implementing custom, compact, and modular components. GameCube controller emulation, integrated speakers, an amp, screen, internal memory, and power management system."
   },
   2: {
     title: "Portable Handheld Wii (G-Wii)",
-    caption: "Project 2 — edit title and caption in src/data/galleryProjects.ts",
+    caption: "Very similar project to the G-boy except in a different package with some differences.",
   },
   3: {
     title: "Compilation of RGH3",

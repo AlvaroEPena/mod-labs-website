@@ -1,5 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+/** Homepage gallery strip (2×3 grid). Row 2 uses project4.2 (still image) because project4.1 is the video in the full gallery. */
+import homeGalleryP1 from "../../imgs/project1.1.jpg?url";
+import homeGalleryP2 from "../../imgs/project2.1.jpg?url";
+import homeGalleryP7 from "../../imgs/project7.1.jpg?url";
+import homeGalleryP3 from "../../imgs/project3.1.jpg?url";
+import homeGalleryP6 from "../../imgs/project6.1.jpg?url";
+import homeGalleryP11 from "../../imgs/project11.1.jpg?url";
+
+const homeGalleryPreviews = [
+  { src: homeGalleryP1, alt: "Gallery preview — project 1" },
+  { src: homeGalleryP2, alt: "Gallery preview — project 2" },
+  { src: homeGalleryP7, alt: "Gallery preview — project 7" },
+  { src: homeGalleryP3, alt: "Gallery preview — project 3" },
+  { src: homeGalleryP6, alt: "Gallery preview — project 6" },
+  { src: homeGalleryP11, alt: "Gallery preview — project 11" },
+];
 ---
 
 <BaseLayout
@@ -68,9 +85,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
           <div class="col-lg-6">
             <div class="gallery-mini-grid">
-              <img src="https://picsum.photos/seed/modlabs-home-1/600/400" alt="Gallery preview one" loading="lazy" />
-              <img src="https://picsum.photos/seed/modlabs-home-2/600/400" alt="Gallery preview two" loading="lazy" />
-              <img src="https://picsum.photos/seed/modlabs-home-3/600/400" alt="Gallery preview three" loading="lazy" />
+              {homeGalleryPreviews.map((item) => (
+                <img src={item.src} alt={item.alt} loading="lazy" decoding="async" width="600" height="400" />
+              ))}
             </div>
           </div>
         </div>
